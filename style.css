@@ -1,61 +1,96 @@
 body {
+    width: 200px;
     font-family: Arial, sans-serif;
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
     margin: 0;
-    background-color: #f0f0f0;
+    background-image: url("assets/Tiles_Rectangle_Grey_1.png");
 }
 
-.container {
+.kitchen {
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
+.pView {
+    display: none; 
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    height: 100vh;
+    width: 100vw;
+    background-image: url("assets/Tiles_Rectangle_Grey_1.png");
+}
+
+.plate2 {
+    width: 100px;
+    height: 100px;
+    position: relative;
+    background-image: url('assets/plate.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    border-radius: 50%;
+    margin-bottom: 20px;
+}
+
+.egg {
+    width: 48px;
+    height: 48px;
+    position: absolute;
+    background-size: cover; 
+    background-repeat: no-repeat;
+    position: absolute;
+    top: 50%; 
+    left: 50%; 
+    transform: translate(-50%, -50%); 
+    z-index: 2; 
+}
+
+.button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
 .frying-pan {
     width: 150px;
     height: 150px;
-    background-color: black;
-    border: 3px solid red;
+    background-image: url("assets/pan.png");
     border-radius: 50%;
     position: relative;
     margin-bottom: 10px;
 }
 
-.egg {
+.container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center; 
+    width: 100%; 
+    margin-bottom: 20px; 
+}
+
+.smallEgg {
+    width: 32px;
+    height: 32px;
+    background-size: cover; 
+    background-repeat: no-repeat;
+    background-image: url("assets/egg.png");
+    justify-self: right;
+    z-index: 2;
+}
+
+.smallPlate {
     width: 50px;
     height: 50px;
-    background-color: white;
-    border-radius: 50%;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    display: none; /* Initially hidden */
-}
-
-.egg::after {
-    content: "";
-    width: 20px;
-    height: 20px;
-    background-color: yellow;
-    border-radius: 50%;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-}
-
-.stopwatch {
-    font-size: 20px;
-    margin: 10px 0;
-}
-
-.plate {
-    width: 100px;
-    height: 100px;
-    background-color: grey;
+    background-image: url("assets/plate.png");
     border-radius: 50%;
 }
+
