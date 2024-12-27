@@ -1,12 +1,16 @@
 let interval = null;
-let eggState = 0; 
+let eggState = -1; 
 
 document.addEventListener('DOMContentLoaded', () => {
-    const kitchen = document.getElementById('kitchen');
-    const pView = document.getElementById('pView');
+    const frySound = document.getElementById('frySound');
+    const plateSound = document.getElementById('plateSound');
 
+    // start frying
     document.getElementById('smallEgg').addEventListener('click', () => {
         const egg = document.getElementById('egg');
+        
+        frySound.play();
+
         egg.style.display = 'block';
         eggState = 0;
         updateEggAppearance(egg, eggState);
@@ -29,28 +33,44 @@ document.addEventListener('DOMContentLoaded', () => {
     
     // put egg on plate
     document.getElementById('smallPlate').addEventListener('click', () => {
-
         const kitchen = document.getElementById('kitchen');
         const pView = document.getElementById('pView');
+        
+        if (eggState === -1) {
+            plateSound.play();
 
-        pView.style.display = 'flex';
-        kitchen.style.display = 'none';
+            pView.style.display = 'flex';
+            kitchen.style.display = 'none';
 
-        const plate = document.getElementById('plate2');
-        plate.style.backgroundImage = 'url(assets/plate.png)';
+            const plate = document.getElementById('plate2');
+            plate.style.backgroundImage = 'url(assets/plate.png)';
+        }
 
-        const eggImg = document.createElement('div');
-        eggImg.style.backgroundImage = `url(assets/egg_${eggState}.png)`;
-        eggImg.className = 'egg';
+        else {
+            frySound.pause();
+            frySound.currentTime = 0;
+            plateSound.play();
 
-        plate.appendChild(eggImg);
+            pView.style.display = 'flex';
+            kitchen.style.display = 'none';
+
+            const plate = document.getElementById('plate2');
+            plate.style.backgroundImage = 'url(assets/plate.png)';
+
+            const eggImg = document.createElement('div');
+            eggImg.style.backgroundImage = `url(assets/egg_${eggState}.png)`;
+            eggImg.className = 'egg';
+
+            plate.appendChild(eggImg);
+        }
     });
 
     // reset button
     document.getElementById('button').addEventListener('click', () => {
+        plateSound.pause();
         clearInterval(interval);
         interval = null;
-        eggState = 0;
+        eggState = -1;
 
         const kitchen = document.getElementById('kitchen');
         const pView = document.getElementById('pView');
