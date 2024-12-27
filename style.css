@@ -1,8 +1,8 @@
 body {
-    width: 200px;
+    width: 300px;
     font-family: Arial, sans-serif;
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
     height: 100vh;
     margin: 0;
@@ -11,10 +11,11 @@ body {
 
 .kitchen {
     display: flex;
+    transform: scale(1.2);
     align-items: center;
-    justify-content: center;
-    gap: 20px;
-    padding: 20px;
+    justify-content: flex-start;
+    gap: 0px;
+    padding: 0px;
 }
 
 .pView {
@@ -28,8 +29,8 @@ body {
 }
 
 .plate2 {
-    width: 100px;
-    height: 100px;
+    width: 200px;
+    height: 200px;
     position: relative;
     background-image: url('assets/plate.png');
     background-size: cover;
@@ -44,8 +45,7 @@ body {
     position: absolute;
     background-size: cover; 
     background-repeat: no-repeat;
-    position: absolute;
-    top: 50%; 
+    top: 40%; 
     left: 50%; 
     transform: translate(-50%, -50%); 
     z-index: 2; 
@@ -65,7 +65,7 @@ body {
 .frying-pan {
     width: 150px;
     height: 150px;
-    background-image: url("assets/pan.png");
+    background-image: url("assets/pan2.png");
     border-radius: 50%;
     position: relative;
     margin-bottom: 10px;
@@ -73,15 +73,17 @@ body {
 
 .container {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center; 
-    width: 100%; 
-    margin-bottom: 20px; 
+    /* width: 100%;  */
+    gap: 5px;
 }
 
 .smallEgg {
     width: 32px;
     height: 32px;
+    margin: 10px;
+    position: relative;
     background-size: cover; 
     background-repeat: no-repeat;
     background-image: url("assets/egg.png");
@@ -90,9 +92,46 @@ body {
 }
 
 .smallPlate {
+    position: relative;
+    margin: 10px;
     width: 50px;
     height: 50px;
     background-image: url("assets/plate.png");
     border-radius: 50%;
 }
 
+.outer-wrapper{
+    display: inline-block;
+    margin: 25px 10px;
+    padding: 10px 5px;
+    background: #f6eee3;
+    min-width: 40px;
+  }
+  
+  .column-wrapper{
+    height: 200px;
+    width: 20px;
+    background: white;
+    transform: rotate(180deg);
+    margin: 0 auto;
+  }
+  
+  .column{
+    width: 20px;
+    height: 0%;
+    background: white;
+  }
+  
+
+.gauge {
+    transform: scale(0.8);
+    transform-origin: center;
+    flex: 0 0 auto; 
+    margin-left: 10px;
+}
+
+.objects {
+    flex: 1;
+    margin: 0;
+    padding: 0;
+}
